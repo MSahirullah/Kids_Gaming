@@ -1,5 +1,24 @@
 <?php
 session_start();
+
+require '../common/conn.php';
+
+$query = "SELECT * FROM users WHERE role='ROLE_ADMIN'";
+
+$result = mysqli_query($conn, $query);
+
+$admins = [];
+
+while ($admin = mysqli_fetch_array($result)) {
+    $admins[] = array(
+        'id' => $admin['id'],
+        'firstName' => $admin['firstName'],
+        'lastName' => $admin['lastName'],
+        'email' => $admin['email'],
+        'status' => $admin['status'],
+    );
+}
+
 ?>
 
 <link rel="stylesheet" href="../css/style.css">
@@ -26,18 +45,17 @@ session_start();
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a data-toggle="modal" data-target="#cart" class="nav-link reg-btn btn-sm" style="cursor: point;">
-                    <i class="fas fa-shopping-cart"></i>
-                    Cart
-                </a>
-            </li>
-
             <?php
 
 
             if (isset($_SESSION['login_user_email'])) {
             ?>
+                <li class="nav-item">
+                    <a data-toggle="modal" data-target="#cart" class="nav-link reg-btn btn-sm" style="cursor: point;">
+                        <i class="fas fa-shopping-cart"></i>
+                        Cart
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                         <?php echo $_SESSION['login_user_firstname'] ?></span>&nbsp<span><?php echo $_SESSION['login_user_lastname'] ?>
@@ -80,15 +98,24 @@ session_start();
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
-            <div class="modal-header">
+            <div class="modal-header cb">
+                <h4 class="modal-title text-left cb" id="myModalLabel2">Cart</h4>
                 <button type="button" class="close text-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel2">Right Sidebar</h4>
             </div>
-
             <div class="modal-body">
-                <p>
-                    测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla测试栗子blabla
-                </p>
+
+                <div class="cart-item">
+                    <div class="cart-image">
+
+                    </div>
+                    <div class="cart-details">
+
+                    </div>
+                    <div class="cart-remove">
+
+                    </div>
+
+                </div>
             </div>
 
         </div>
