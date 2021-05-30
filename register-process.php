@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
     $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $password = $_POST['password'];
 
     $sql = "INSERT INTO users (firstName, lastName, email, password, role, status ) VALUES ('$firstName','$lastName','$email','$password','ROLE_USER', 1)";
 

@@ -9,10 +9,9 @@ if (str_contains($url, 'dashboard')) {
             header('Location:login.php');
         }
     }
-    //     if ($_SESSION['login_user_role'] != 'ROLE_ADMIN') {
-    //         header('Location:../index.php');
-    //     }
-
+    if ($_SESSION['login_user_role'] != 'ROLE_ADMIN') {
+        header('Location:../index.php');
+    }
 }
 
 

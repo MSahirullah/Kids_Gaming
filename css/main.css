@@ -526,3 +526,7 @@ color:#9c9c9c;
 .active .nav-link {
   color: #6a7dfe !important;
 }
+
+.modal-open[style] {
+  padding-right: 0px !important;
+  }

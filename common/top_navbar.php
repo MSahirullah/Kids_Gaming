@@ -1,6 +1,8 @@
 <?php
 session_start();
 ?>
+
+<link rel="stylesheet" href="../css/style.css">
 <nav class="navbar navbar-expand-lg nav-bg-dark fixed-top">
     <a class="navbar-brand nav-wapper-1" href="#">
         <img src="images/logo2.png" width="50px">
@@ -25,7 +27,7 @@ session_start();
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="#" class="nav-link reg-btn btn-sm">
+                <a data-toggle="modal" data-target="#cart" class="nav-link reg-btn btn-sm" style="cursor: point;">
                     <i class="fas fa-shopping-cart"></i>
                     Cart
                 </a>
@@ -41,20 +43,26 @@ session_start();
                         <?php echo $_SESSION['login_user_firstname'] ?></span>&nbsp<span><?php echo $_SESSION['login_user_lastname'] ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Admin</a>
-                        <a class="dropdown-item" href="#">Logout</a>
+
+                        <?php
+                        if ($_SESSION['login_user_role'] == 'ROLE_ADMIN') {
+                            echo "<a class='dropdown-item' href='../dashboard/index.php'>Admin</a>";
+                        }
+                        ?>
+
+                        <a class="dropdown-item" href="../logout.php">Logout </a>
                     </div>
                 </li>
             <?php
             } else {
             ?>
                 <li class="nav-item">
-                    <a href="#" class="nav-link reg-btn btn-sm">
+                    <a href="register.php" class="nav-link reg-btn btn-sm">
                         Register
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link btn btn-dark login-btn btn-sm">
+                    <a href="login.php" class="nav-link btn btn-dark login-btn btn-sm">
                         Login
                     </a>
                 </li>
@@ -67,12 +75,31 @@ session_start();
 </nav>
 
 
-https://codepen.io/bootpen/pen/jbbaRa
+<!-- Modal -->
+<div class="modal right fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="cart">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close text-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel2">Right Sidebar</h4>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla 测试栗子blabla测试栗子blabla
+                </p>
+            </div>
+
+        </div>
+        <!-- modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+<!-- modal -->
+
+
 
 <script>
     $('#navbarDropdownMenuLink').trigger('click');
 </script>
-
-git remote add origin https://github.com/MSahirullah/Kids_Gaming.git
-git branch -M main
-git branch -M main

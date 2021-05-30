@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate credentials
     if (!empty($useremail) && !empty($userpassword)) {
 
-        $sql = "SELECT email, firstName, lastName FROM users WHERE email = '$useremail' and password = '$userpassword' and role = 'ROLE_ADMIN'";
+        $sql = "SELECT email, firstName, lastName FROM users WHERE email = '$useremail' and password = '$userpassword' and role = 'ROLE_USER'";
 
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['login_user_email'] = $row['email'];
             $_SESSION['login_user_firstname'] = $row['firstName'];
             $_SESSION['login_user_lastname'] = $row['lastName'];
-            $_SESSION['login_user_role'] = 'ROLE_ADMIN';
+            $_SESSION['login_user_role'] = 'ROLE_USER';
 
             header("location: index.php");
         } else {

@@ -36,7 +36,7 @@ if (isset($_SESSION['login_user_email'])) {
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form class="login100-form validate-form" action="loginprocess.php" method="POST">
+            <form class="login100-form validate-form" action="login-process.php" method="POST">
                 <span class="login100-form-title p-b-26">
                     Welcome
                 </span>
