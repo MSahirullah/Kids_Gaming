@@ -1,8 +1,0 @@
-//user table
-CREATE TABLE `kids_gaming`.`users` ( `id` INT(10) NOT NULL , `firstName` VARCHAR(500) NOT NULL , `lastName` VARCHAR(500) NOT NULL , `email` VARCHAR(500) NOT NULL , `role` VARCHAR(200) NOT NULL , `status` BOOLEAN NOT NULL DEFAULT TRUE , `lastLogin` TIMESTAMP NOT NULL , PRIMARY KEY (`id`(10)), UNIQUE (`email`(10))) ENGINE = InnoDB;
-
-//
-
-
-
-
