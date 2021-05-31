@@ -365,10 +365,6 @@ if (isset($_GET['formsubmit']) && $_GET['formsubmit'] == 1) {
             var url = $(this).parent().attr('data-url');
             var price = $(this).parent().attr('data-price');
 
-            console.log(game_id);
-            console.log(url);
-            console.log(price);
-
             $.post('add-to-cart.php', {
                 game_id: game_id,
                 url: url,

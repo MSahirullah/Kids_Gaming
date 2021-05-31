@@ -3,7 +3,7 @@
 require 'common/conn.php';
 session_start();
 
-if (!$_SESSION['login_user_id']) {
+if (!isset($_SESSION['login_user_id'])) {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo 3;

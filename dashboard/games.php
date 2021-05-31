@@ -187,10 +187,8 @@ while ($cato = mysqli_fetch_array($result2)) {
                     <h4 class="modal-title" id="danger-header-modalLabel">Remove Game</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
-                <form class="mt-2 cw" action="delete.php" method="POST">
+                <form class="mt-2 cw" action="remove_game.php" method="POST">
                     <input type="hidden" name="t_id" id="t_id" value="">
-                    <input type="hidden" name="table" id="table" value="games">
-                    <input type="hidden" name="url" id="url" value="games.php">
                     <div class="modal-body">
                         <h5 class="mt-0 text-center"> Do you Really want to remove this Game ?</h5>
                     </div>

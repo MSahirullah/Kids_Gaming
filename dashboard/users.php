@@ -81,10 +81,9 @@ while ($user = mysqli_fetch_array($result)) {
                <h4 class="modal-title" id="danger-header-modalLabel">Remove Unit</h4>
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
-            <form class="mt-2 cw" action="delete.php" method="POST">
+            <form class="mt-2 cw" action="remove_user.php" method="POST">
                <input type="hidden" name="t_id" id="t_id" value="">
-               <input type="hidden" name="table" id="table" value="users">
-               <div class="modal-body">useurlpurl
+               <div class="modal-body">
                   <h5 class="mt-0 text-center"> Do you Really want to remove this User ?</h5>
                </div>
                <div class="modal-footer">

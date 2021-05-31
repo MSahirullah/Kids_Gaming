@@ -1,0 +1,19 @@
+<?php
+include("../common/conn.php");
+
+$id = $_POST['t_id'];
+
+$sql = "DELETE FROM payments WHERE user_id = '$id'";
+$conn->query($sql);
+
+$sql2 = "DELETE FROM cart WHERE user_id = '$id'";
+$conn->query($sql2);
+
+
+$sql3 = "DELETE FROM users WHERE id = '$id'";
+
+if ($conn->query($sql3) === TRUE) {
+    header("location:users.php");
+} else {
+    echo "Error deleting record: " . $conn->error;
+}

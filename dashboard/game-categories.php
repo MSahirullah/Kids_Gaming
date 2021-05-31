@@ -135,8 +135,7 @@ while ($gamec = mysqli_fetch_array($result)) {
                         <h4 class="modal-title" id="danger-header-modalLabel">Remove Game Category</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
-                    <form class="mt-2 cw" action="category-process.php" method="POST">
-                        <input type="hidden" name="remove" value="1">
+                    <form class="mt-2 cw" action="remove_game_category.php" method="POST">
                         <input type="hidden" name="rem_cat_id" id="rem_cat_id" value="">
                         <div class="modal-body">
                             <h5 class="mt-0 text-center"> Do you Really want to remove this Category ?</h5>

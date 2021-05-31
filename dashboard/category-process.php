@@ -27,16 +27,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         header('Location:game-categories.php');
     }
-
-
-    // Remove Category
-    if (isset($_POST["remove"])) {
-
-        $id = $_POST["rem_cat_id"];
-        $query = "DELETE FROM game_categories WHERE id = '" . $id . "'";
-        if (mysqli_query($conn, $query)) {
-            $status = 1;
-        }
-        header('Location:game-categories.php');
-    }
 }
