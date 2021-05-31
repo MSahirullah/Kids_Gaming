@@ -1,20 +1,20 @@
 <?php include 'common/header.php'; ?>
 <?php include 'common/top_navbar.php';
 
-if (!isset($_GET['data'])) {
-    header("location:index.php");
-    exit();
-} else {
 
-    $data = $_GET['data'];
-    $query2 = "SELECT * FROM games WHERE game_cato_id = '$data'";
-    $result2 = mysqli_query($conn, $query2);
 
-    $count = mysqli_num_rows($result2);
+$user_id = $_SESSION['login_user_id'];
 
-    $games = [];
-    $cato_name = mysqli_fetch_array(mysqli_query($conn, "SELECT name FROM game_categories WHERE id = '$data'"));
+$query2 = "SELECT games.* FROM games, payments WHERE games.id = payments.game_id AND payments.user_id='$user_id'";
 
+$result2 = mysqli_query($conn, $query2);
+
+$count = mysqli_num_rows($result2);
+
+
+$games = [];
+
+if ($count > 0) {
     while ($game = mysqli_fetch_array($result2)) {
         $games[] = array(
             'id' => $game['id'],
@@ -24,6 +24,7 @@ if (!isset($_GET['data'])) {
         );
     }
 }
+
 
 
 ?>
@@ -90,48 +91,24 @@ if (!isset($_GET['data'])) {
 </style>
 
 <div>
-    <br>
-
-    <br>
     <!--Content-->
 
     <div class="container">
-        <h3><?php echo $cato_name[0] ?></h3>
+        <h3>My Games</h3>
         <div class="hr-line"></div>
         <div class="row">
             <?php
             for ($x = 0; $x < $count; $x++) {
 
-
-                $price = $games[$x]['price'] == '0.00' ?
-                    '<h5 class="text-center text-success"> FREE </h5><br>
-                    <div class="col-md-12">
-                        <a href="../sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
-                    </div>' :
-                    '<h5 class="text-center text-danger"> $ ' . $games[$x]['price'] . ' </h5><br>
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="../sample-game/" class="btn btn-dark btn-block"> <i class="fa fa-gamepad"></i> Play Demo </a>
-                            </div>
-                            <div class="col-md-6 pl-0">
-                                <form action="add-to-cart.php" method="POST">
-                                <input type="hidden" name="game_id" id="game_id" value="' . $games[$x]['id'] . '">
-                                <input type="hidden" name="url" id="url" value="game_categories.php">
-                                <input type="hidden" name="price" id="price" value="' . $games[$x]['price'] . '">
-                                <button type="submit" class="btn btn-warning btn-block "> <i class="fa fa-shopping-cart" style="padding-left: 8px;margin-right: 4px;"></i> Add to Cart</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>';
-
                 echo "<div class='col-sm-4'>
                 <div class='card'>
                     <div class='game-image' style='background-image: url(../" . $games[$x]['image'] . ");'></div>
                     <h1>" . $games[$x]['name'] . "</h1>
-                    " . $price . "
+                    <h5 class='text-center text-success'> FREE </h5><br>
+                    <div class='col-md-12'>
+                        <a href='../sample-game/' class='btn btn-success btn-block'> <i class='fa fa-gamepad'></i> Play Now</a>
+                    </div>
                     <br>
-                    
                 </div>
             </div>";
             }

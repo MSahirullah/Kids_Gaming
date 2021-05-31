@@ -21,8 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['login_user_lastname'] = $lastName;
         $_SESSION['login_user_role'] = 'ROLE_USER';
 
+        $query = "SELECT id FROM users WHERE email = '$email'";
+        $result2 = mysqli_query($conn, $query);
+        $id = mysqli_fetch_array($result2);
+
+        $_SESSION['login_user_id'] = $id[0];
+
+
+
         header('Location:index.php');
     } else {
+
         header('Location:register.php');
     }
 }

@@ -1,8 +1,6 @@
 <?php
 
 include 'common/header.php';
-session_start();
-
 if (isset($_SESSION['login_user_email'])) {
     header('Location:index.php');
 }
@@ -49,10 +47,12 @@ if (isset($_SESSION['login_user_email'])) {
                     <span class="focus-input100" data-placeholder="Email"></span>
                 </div>
 
-                <div class="wrap-input100 validate-input">
+                <div class="wrap-input100 validate-input" style="margin-bottom:30px;">
                     <input class="input100" type="password" name="password">
                     <span class="focus-input100" data-placeholder="Password" required></span>
                 </div>
+
+                <a href="forgot-password.php" lass="link-light cp">Forgot Password? <i class="fas fa-arrow-right cp" style="margin-left:5px;margin-bottom:15px"></i></a>
 
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">

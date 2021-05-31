@@ -1,5 +1,27 @@
 <?php include 'common/header.php'; ?>
 <?php include 'common/top_navbar.php';
+
+require 'common/conn.php';
+
+$user_id = $_SESSION['login_user_id'];
+
+$query = "SELECT games.* from games where not exists(SELECT null FROM payments WHERE payments.game_id = games.id AND payments.user_id = '$user_id')";
+
+$result = mysqli_query($conn, $query);
+
+$count = mysqli_num_rows($result);
+
+$games = [];
+
+while ($game = mysqli_fetch_array($result)) {
+    $games[] = array(
+        'id' => $game['id'],
+        'price' => $game['price'],
+        'name' => $game['name'],
+        'image' => $game['image'],
+    );
+}
+
 ?>
 <style>
     body {
@@ -67,104 +89,42 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="game-image" style="background-image: url('images/games/15c.jpg');"></div>
-                    <h1>Getway Blastf</h1>
-                    <h5 class="text-center text-danger"> $1.78 </h5>
-                    <br>
+            <?php
+            for ($x = 12; $x < $count; $x++) {
+
+                $price = $games[$x]['price'] == '0.00' ?
+                    '<h5 class="text-center text-success"> FREE </h5><br>
+                    <div class="col-md-12">
+                        <a href="../sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
+                    </div>' :
+                    '<h5 class="text-center text-danger"> $ ' . $games[$x]['price'] . ' </h5><br>
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-md-6">
-                                <a href="sample-game/" class="btn btn-dark btn-block"> <i class="fa fa-gamepad"></i> Play Demo </a>
+                                <a href="../sample-game/" class="btn btn-dark btn-block"> <i class="fa fa-gamepad"></i> Play Demo </a>
                             </div>
                             <div class="col-md-6 pl-0">
-                                <button class="btn btn-warning btn-block "> <i class="fa fa-shopping-cart" style="padding-left: 8px;margin-right: 4px;"></i> Add to Cart</button>
+                                <form action="add-to-cart.php" method="POST">
+                                <input type="hidden" name="game_id" id="game_id" value="' . $games[$x]['id'] . '">
+                                <input type="hidden" name="url" id="url" value="game_store2.php">
+                                <input type="hidden" name="price" id="price" value="' . $games[$x]['price'] . '">
+                                <button type="submit" class="btn btn-warning btn-block "> <i class="fa fa-shopping-cart" style="padding-left: 8px;margin-right: 4px;"></i> Add to Cart</button>
+                                </form>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="game-image" style="background-image: url('images/games/20.jpg');"></div>
-                    <h1>Skate O Rama</h1>
-                    <h5 class="text-center text-success"> FREE </h5>
+                    </div>';
+
+                echo "<div class='col-sm-4'>
+                <div class='card'>
+                    <div class='game-image' style='background-image: url(../" . $games[$x]['image'] . ");'></div>
+                    <h1>" . $games[$x]['name'] . "</h1>
+                    " . $price . "
                     <br>
-                    <div class="col-md-12">
-                        <a href="sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
-                    </div>
+                    
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="game-image" style="background-image: url('images/games/17c.jpg');"></div>
-                    <h1>Minecraft</h1>
-                    <h5 class="text-center text-success"> FREE </h5>
-                    <br>
-                    <div class="col-md-12">
-                        <a href="sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="game-image" style="background-image: url('images/games/16c.jpg');"></div>
-                    <h1>Infinity</h1>
-                    <h5 class="text-center text-success"> FREE </h5>
-                    <br>
-                    <div class="col-md-12">
-                        <a href="sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="game-image" style="background-image: url('images/games/23.jpg');"></div>
-                    <h1>Peg + Cat</h1>
-                    <h5 class="text-center text-success"> FREE </h5>
-                    <br>
-                    <div class="col-md-12">
-                        <a href="sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="game-image" style="background-image: url('images/games/27.jpg');"></div>
-                    <h1>Rayman</h1>
-                    <h5 class="text-center text-danger"> $0.79 </h5>
-                    <br>
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="sample-game/" class="btn btn-dark btn-block"> <i class="fa fa-gamepad"></i> Play Demo </a>
-                            </div>
-                            <div class="col-md-6 pl-0">
-                                <button class="btn btn-warning btn-block "> <i class="fa fa-shopping-cart" style="padding-left: 8px;margin-right: 4px;"></i> Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="game-image" style="background-image: url('images/games/56.jpg');"></div>
-                    <h1>Poptropica</h1>
-                    <h5 class="text-center text-danger"> $2.00 </h5>
-                    <br>
-                    <div class="col-sm-12">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="sample-game/" class="btn btn-dark btn-block"> <i class="fa fa-gamepad"></i> Play Demo </a>
-                            </div>
-                            <div class="col-md-6 pl-0">
-                                <button class="btn btn-warning btn-block "> <i class="fa fa-shopping-cart" style="padding-left: 8px;margin-right: 4px;"></i> Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>";
+            }
+            ?>
         </div>
     </div>
 
@@ -188,3 +148,66 @@
     </div>
 
     <?php include 'common/footer.php'; ?>
+    <div id="successModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="danger-header-modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-success text">
+                    <h4 class="modal-title" id="danger-header-modalLabel successModal">
+                        Success!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="mt-0 text-center text-black">
+                        <i class="fa fa-check"></i> Your Game has been added to cart successfully.
+                    </h5>
+                </div>
+                <div class="modal-footer text-center">
+                    <a href="game_store2.php" type="submit" class="btn btn-success">Ok</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="errorModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="danger-header-modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-danger text">
+                    <h4 class="modal-title" id="danger-header-modalLabel dangerModal">
+                        Already added!</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="mt-0 text-center text-black">
+                        <i class="fa fa-times"></i> This Game already in your cart.
+                    </h5>
+                </div>
+                <div class="modal-footer text-center">
+                    <a href="game_store2.php" type="submit" class="btn btn-success">Ok</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <?php
+    if (isset($_GET['message-send']) && $_GET['message-send'] == '1') {
+    ?>
+        <script>
+            $("#successModal").modal('show');
+        </script>
+    <?php
+    }
+
+    ?>
+
+    <?php
+    if (isset($_GET['message-send']) && $_GET['message-send'] == '2') {
+    ?>
+        <script>
+            $("#errorModal").modal('show');
+        </script>
+    <?php
+    }
+
+    ?>

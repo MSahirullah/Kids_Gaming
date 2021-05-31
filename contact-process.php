@@ -1,4 +1,5 @@
-<?php
+<?php include 'common/header.php';
+
 
 require 'common/conn.php';
 
@@ -11,11 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $message = $_POST['message'];
 
-    $sql = "INSERT INTO messages (firstName, lastName, email, message, status ) VALUES ('$firstName', '$secondName','$email','$message',1)";
+    $sql = "INSERT INTO messages (firstName, lastName, email, message, status ) VALUES ('$firstName', '$secondName', '$email', '$message', 1)";
 
-    if ($conn->query($sql) == FALSE) {
-        echo "Error" . $sql . $conn->error;
+    if ($conn->query($sql) == TRUE) {
+        //     $_SESSION['status'] = 1;
+        //     header('Location:contact_us.php');
+
+        header("Location:contact_us.php?formsubmit=9");
+        exit();
     }
 
-    header('Location:contact_us.php?message-send=1');
+    echo "Error" . $sql . $conn->error;
 }

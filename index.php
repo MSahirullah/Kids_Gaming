@@ -9,9 +9,10 @@
 			<h1 class="cb">ONLINE GAMES FOR SCHOOL KIDS</h1>
 			<h3><i class="cb">Disigned by gamers for kids</i></h3>
 			<br>
-			<button class="btn btn-success btn-lg">
-				<i class="fa fa-gamepad"></i> Play Now
-			</button>
+			<a href="game_store.php">
+				<button class="btn btn-success btn-lg">
+					<i class="fa fa-gamepad"></i> Play Now
+				</button></a>
 		</div>
 	</div>
 
@@ -31,7 +32,8 @@
 			<br>We understood the demands<br>
 			of the children and their needs and established<br>
 			this platform with the instructions<br>
-			of the child specialists.</p>
+			of the child specialists.
+		</p>
 	</div>
 
 	<br>
@@ -54,15 +56,15 @@
 	<h1 class="text-center">Our team</h1><br>
 	<div class="row text-center">
 		<div class="col-md-4">
-			<img src="images\name.jpg" width="150">
+			<img src="  images\name.jpg" width="150">
 			<h5 class="text-center mem-name">Isuru</h5>
 		</div>
 		<div class="col-md-4">
-			<img src="images\name.jpg" width="150">
+			<img src="  images\name.jpg" width="150">
 			<h5 class="text-center mem-name">Chanodya</h5>
 		</div>
 		<div class="col-md-4">
-			<img src="images\name.jpg" width="150">
+			<img src="  images\name.jpg" width="150">
 			<h5 class="text-center mem-name">Kaveesha</h5>
 		</div>
 	</div>

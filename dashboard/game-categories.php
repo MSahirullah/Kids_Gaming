@@ -1,5 +1,5 @@
 <?php
-include('session.php');
+
 include('../common/header.php');
 include('d-header.php');
 require '../common/conn.php';
@@ -15,7 +15,6 @@ while ($gamec = mysqli_fetch_array($result)) {
         'status' => $gamec['status'],
     );
 }
-
 ?>
 
 <body class="fixed-nav sticky-footer bg-dark">
@@ -41,7 +40,7 @@ while ($gamec = mysqli_fetch_array($result)) {
                                     <tr>
                                         <th width="10px">Id</th>
                                         <th>Name</th>
-                                        <th>Email</th>
+                                        <th>Status</th>
                                         <th width="150px" class="text-center">Actions</th>
                                     </tr>
                                 </thead>

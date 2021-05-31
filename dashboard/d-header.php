@@ -1,6 +1,11 @@
 <?php
-session_start();
+if (!isset($_SESSION['login_user_firstname'])) {
+    header('Location:login.php');
+    exit();
+}
+
 ?>
+
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top " id="mainNav">
@@ -13,9 +18,9 @@ session_start();
         <ul class="navbar-nav navbar-sidenav" id="dashboard">
             <div class="hr-line"></div>
             <div class="user-name">
-                    <span><?php echo $_SESSION['login_user_firstname'] ?></span>&nbsp<span><?php echo $_SESSION['login_user_lastname'] ?></span>
-                    <div class="role-div"><span class="green-circle"></span><span class="role">Admin</span></div>
-                </div>
+                <span><?php echo $_SESSION['login_user_firstname'] ?></span>&nbsp<span><?php echo $_SESSION['login_user_lastname'] ?></span>
+                <div class="role-div"><span class="green-circle"></span><span class="role">Admin</span></div>
+            </div>
             </li>
             <div class="hr-line"></div>
             <li class="nav-item <?php echo basename($_SERVER['REQUEST_URI']) == 'index.php' ? 'disabled disabled-c disabled disabled-c-c' : '' ?>" data-toggle="tooltip" data-placement="right" title="Dashboard">
@@ -52,6 +57,13 @@ session_start();
                 <a class="nav-link <?php echo basename($_SERVER['REQUEST_URI']) == 'payments.php' ? 'disabled disabled-c' : '' ?>" href="payments.php" style="color:#adb5bd;">
                     <i class="fas fa-file-invoice-dollar" style="margin-right: 5px;"></i>
                     <span class="nav-link-text">Payments</span>
+                </a>
+            </li>
+
+            <li class="nav-item <?php echo basename($_SERVER['REQUEST_URI']) == 'enquiries.php' ? 'disabled disabled-c' : '' ?>" data-toggle="tooltip" data-placement="right" title="Enquiries">
+                <a class="nav-link <?php echo basename($_SERVER['REQUEST_URI']) == 'enquiries.php' ? 'disabled disabled-c' : '' ?>" href="enquiries.php" style="color:#adb5bd;">
+                    <i class="fas fa-envelope-open-text" style=" margin-right: 5px;"></i>
+                    <span class="nav-link-text">Enquiries</span>
                 </a>
             </li>
 

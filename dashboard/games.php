@@ -1,5 +1,5 @@
 <?php
-include('session.php');
+
 include('../common/header.php');
 include('d-header.php');
 require '../common/conn.php';
@@ -165,7 +165,7 @@ while ($cato = mysqli_fetch_array($result2)) {
                             <div class="row">
                                 <label class="col-sm-4"> Price </label>
                                 <div class="col-sm-8">
-                                    <input name="price" required oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" class="form-control p-input validate-input" id="price" maxlength="15" />
+                                    <input name="price" required type="text" class="form-control p-input validate-input" id="price" maxlength="15" />
 
                                 </div>
                             </div>

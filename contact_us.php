@@ -1,5 +1,18 @@
-<?php include 'common/header.php'; ?>
-<?php include 'common/top_navbar.php'; ?>
+<?php include 'common/header.php';
+?>
+<?php include 'common/top_navbar.php';
+$fname =  "";
+$lname = "";
+$email = "";
+
+
+
+if (isset($_SESSION['login_user_email'])) {
+    $fname =  $_SESSION['login_user_firstname'];
+    $lname = $_SESSION['login_user_lastname'];
+    $email = $_SESSION['login_user_email'];
+}
+?>
 <style>
     body {
         background-color: black;
@@ -26,9 +39,6 @@
         background-color: #090909;
     }
 </style>
-<br>
-<br>
-<br>
 <br>
 <div class="container">
     <div class="row">
@@ -73,13 +83,13 @@
                 <hr>
                 <form action="contact-process.php" method="POST">
                     <label for="fname">First name:</label><br>
-                    <input type="text" class="form-control" id="fname" name="fname" value="John" required><br>
+                    <input type="text" class="form-control" id="fname" name="fname" value="<?php echo $fname ?>" required><br>
                     <label for="lname">Last name:</label><br>
-                    <input type="text" class="form-control" id="lname" name="lname" value="John" required><br>
+                    <input type="text" class="form-control" id="lname" name="lname" value="<?php echo $lname ?>" required><br>
                     <label for="email">Email:</label><br>
-                    <input type="text" class="form-control" id="email" name="email" value="John" required><br>
+                    <input type="email" class="form-control" id="email" name="email" value="<?php echo $email ?>" required><br>
                     <label for="message">Message:</label><br>
-                    <textarea rows="4" class="form-control" id="message" name="message" form="usrform" required></textarea>
+                    <textarea rows="4" class="form-control" id="message" name="message" required></textarea>
                     <br><br>
                     <input type="submit" class="btn btn-warning pull-right" value="Submit">
                 </form>
@@ -88,7 +98,7 @@
     </div>
 
 
-    <div id="successModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="danger-header-modalLabel" aria-hidden="true">
+    <div id="successModal1" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="danger-header-modalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header modal-colored-header bg-success text">
@@ -111,10 +121,10 @@
     <br><br>
 
     <?php
-    if (isset($_GET['message-send'])) {
+    if (isset($_GET['formsubmit']) && $_GET['formsubmit'] == 9) {
     ?>
         <script>
-            $("#successModal").modal('show');
+            $("#successModal1").modal('show');
         </script>
     <?php
     }
