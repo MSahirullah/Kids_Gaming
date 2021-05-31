@@ -3,10 +3,9 @@
 require 'common/conn.php';
 session_start();
 
-
 if (!$_SESSION['login_user_id']) {
     header('Location:login.php');
-    exit;
+    exit();
 } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $url = $_POST['url'];
@@ -30,6 +29,5 @@ if (!$_SESSION['login_user_id']) {
     } else {
         echo 2;
     }
-
-    exit();
 }
+exit();

@@ -95,7 +95,7 @@ while ($game = mysqli_fetch_array($result)) {
             foreach ($games as $game) {
                 $price = $game['price'] == '0.00' ? '<h5 class="text-center text-success"> FREE </h5><br>
                 <div class="col-md-12">
-                    <a href="../sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
+                    <a href="sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
                 </div>' : '<h5 class="text-center text-danger"> $ ' . $game['price'] . ' </h5><br>
                 <div class="col-sm-12">
                     <div class="row">
@@ -110,7 +110,7 @@ while ($game = mysqli_fetch_array($result)) {
 
                 echo "<div class='col-sm-4'>
                     <div class='card'>
-                        <div class='game-image' style='background-image: url(../" . $game['image'] . ");'></div>
+                        <div class='game-image' style='background-image: url(" . $game['image'] . ");'></div>
                         <h1>" . $game['name'] . "</h1>
                         " . $price . "
                         <br>
