@@ -566,3 +566,11 @@ footer a {
 .modal-open[style] {
   padding-right: 0px !important;
 }
+
+.label-danger {
+  border: 1px solid red;
+  padding: 10px;
+  width: 100%;
+  border-radius: 7px;
+  margin-bottom: 26px;
+}
