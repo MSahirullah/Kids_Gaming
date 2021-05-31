@@ -3,7 +3,10 @@
 
 require 'common/conn.php';
 
-$user_id = $_SESSION['login_user_id'];
+$user_id = 0;
+if (isset($_SESSION['login_user_id'])) {
+    $user_id = $_SESSION['login_user_id'];
+}
 
 $query = "SELECT games.* from games where not exists(SELECT null FROM payments WHERE payments.game_id = games.id AND payments.user_id = '$user_id')";
 
@@ -84,7 +87,6 @@ while ($game = mysqli_fetch_array($result)) {
     <br>
     <br>
     <br>
-    <br>
     <!--Content-->
 
     <div class="container">
@@ -95,13 +97,13 @@ while ($game = mysqli_fetch_array($result)) {
                 $price = $games[$x]['price'] == '0.00' ?
                     '<h5 class="text-center text-success"> FREE </h5><br>
                     <div class="col-md-12">
-                        <a href="../sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
+                        <a href=" sample-game/" class="btn btn-success btn-block"> <i class="fa fa-gamepad"></i> Play Now</a>
                     </div>' :
                     '<h5 class="text-center text-danger"> $ ' . $games[$x]['price'] . ' </h5><br>
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-md-6">
-                                <a href="../sample-game/" class="btn btn-dark btn-block"> <i class="fa fa-gamepad"></i> Play Demo </a>
+                                <a href=" sample-game/" class="btn btn-dark btn-block"> <i class="fa fa-gamepad"></i> Play Demo </a>
                             </div>
                             <div class="col-md-6 pl-0" data-gameid="' . $games[$x]['id'] . '" data-url="game_store.php" data-price="' . $games[$x]['price'] . '">
                                 <button type="button" class="btn btn-warning btn-block add-to-cart"> <i class="fa fa-shopping-cart" style="padding-left: 8px;margin-right: 4px;"></i> Add to Cart</button>
@@ -111,7 +113,7 @@ while ($game = mysqli_fetch_array($result)) {
 
                 echo "<div class='col-sm-4'>
                 <div class='card'>
-                    <div class='game-image' style='background-image: url(../" . $games[$x]['image'] . ");'></div>
+                    <div class='game-image' style='background-image: url( " . $games[$x]['image'] . ");'></div>
                     <h1>" . $games[$x]['name'] . "</h1>
                     " . $price . "
                     <br>

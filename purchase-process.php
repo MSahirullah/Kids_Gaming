@@ -43,12 +43,12 @@ if (!$_SESSION['login_user_id']) {
         $sql = "DELETE FROM cart WHERE user_id = '$user_id'";
 
         if ($conn->query($sql) === TRUE) {
-            header("Location:index.php?formsubmit=8");
+            header("Location:my_games.php?formsubmit=8");
             exit();
         }
     }
     echo "Error" . $query . $conn->error;
 
-    header("Location:index.php?formsubmit=9");
+    header("Location:my_games.php?formsubmit=9");
     exit();
 }

@@ -94,6 +94,21 @@ if (isset($_SESSION['login_user_email'])) {
 <script src="../vendor/countdowntime/countdowntime.js"></script>
 <script src="../js/main.js"></script>
 
+
+<?php
+if (isset($_GET['formsubmit']) && $_GET['formsubmit'] == 13) {
+?>
+    <script>
+        alert("Email address alreay registered. Please login.");
+        window.location = 'login.php';
+    </script>
+<?php
+}
+?>
+
+
 </body>
+
+
 
 </html>

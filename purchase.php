@@ -13,7 +13,7 @@ if (isset($_SESSION['login_user_email'])) {
 
 <style>
     .container-login100 {
-        background-image: url('../images/bg-img.png');
+        background-image: url(' images/bg-img.png');
         background-repeat: no-repeat;
         background-size: cover;
         height: 100%;
@@ -89,7 +89,7 @@ if (isset($_SESSION['login_user_email'])) {
         <div class="wrap-login100">
             <form class="login100-form validate-form" action="purchase-process.php" method="POST">
                 <span class="login100-form-title">
-                    <img src="../images/logo2.png" alt="logo" width="100" style="margin-left:-25px;padding-bottom: 20px;">
+                    <img src=" images/logo2.png" alt="logo" width="100" style="margin-left:-25px;padding-bottom: 20px;">
                 </span>
                 <span class="login100-form-title p-b-26">
                     Payment
@@ -118,8 +118,8 @@ if (isset($_SESSION['login_user_email'])) {
                         </div>
 
                         <div class="wrap-input100 validate-input">
-                            <label for="fname">Mobile Number</label>
-                            <input class="input100" type="text" name="mobNo" id="mobNo" required>
+                            <label for="fname">Mobile Number <small>(07XXXXXXXX)</small></label>
+                            <input class="input100" maxlength="10" type="tel" name="mobNo" id="mobNo" required pattern="07[1,2,5,6,7,8][0-9]+">
                         </div>
                     </div>
 
@@ -130,10 +130,10 @@ if (isset($_SESSION['login_user_email'])) {
                         <div class="text-center select-p-option">
 
                             <input class="form-check-input r-1" type="radio" name="p-option" id="p-option" value="visa" required>
-                            <img src="../images/card-1.png" alt="c1" width="75px">
+                            <label for="p-option"><img src=" images/card-1.png" alt="c1" width="75px"></label>
 
                             <input class="form-check-input r-1" type="radio" name="p-option" id="p-option1" value="master" required>
-                            <img src="../images/cade-2.png" alt="c2" width="75px">
+                            <label for="p-option1"><img src=" images/cade-2.png" alt="c2" width="75px"></label>
                         </div>
                         <div class="wrap-input100 validate-input">
                             <label for="card_no">Card Number</label>
@@ -173,14 +173,14 @@ if (isset($_SESSION['login_user_email'])) {
 
 
 <div id="dropDownSelect1"></div>
-<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-<script src="../vendor/animsition/js/animsition.min.js"></script>
-<script src="../vendor/bootstrap/js/popper.js"></script>
-<script src="../vendor/select2/select2.min.js"></script>
-<script src="../vendor/daterangepicker/moment.min.js"></script>
-<script src="../vendor/daterangepicker/daterangepicker.js"></script>
-<script src="../vendor/countdowntime/countdowntime.js"></script>
-<script src="../js/main.js"></script>
+<script src=" vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src=" vendor/animsition/js/animsition.min.js"></script>
+<script src=" vendor/bootstrap/js/popper.js"></script>
+<script src=" vendor/select2/select2.min.js"></script>
+<script src=" vendor/daterangepicker/moment.min.js"></script>
+<script src=" vendor/daterangepicker/daterangepicker.js"></script>
+<script src=" vendor/countdowntime/countdowntime.js"></script>
+<script src=" js/main.js"></script>
 
 </body>
 

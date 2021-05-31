@@ -92,6 +92,7 @@ if ($count > 0) {
 <div>
     <!--Content-->
     <br>
+    <br>
     <div class="container">
         <h3>My Games</h3>
         <div class="hr-line"></div>
@@ -101,11 +102,11 @@ if ($count > 0) {
 
                 echo "<div class='col-sm-4'>
                 <div class='card'>
-                    <div class='game-image' style='background-image: url(../" . $games[$x]['image'] . ");'></div>
+                    <div class='game-image' style='background-image: url( " . $games[$x]['image'] . ");'></div>
                     <h1>" . $games[$x]['name'] . "</h1>
                     <h5 class='text-center text-success'> FREE </h5><br>
                     <div class='col-md-12'>
-                        <a href='../sample-game/' class='btn btn-success btn-block'> <i class='fa fa-gamepad'></i> Play Now</a>
+                        <a href=' sample-game/' class='btn btn-success btn-block'> <i class='fa fa-gamepad'></i> Play Now</a>
                     </div>
                     <br>
                 </div>

@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //     $_SESSION['status'] = 1;
         //     header('Location:contact_us.php');
 
-        header("Location:contact_us.php?formsubmit=9");
+        header("Location:contact_us.php?formsubmit=10");
         exit();
     }
 
