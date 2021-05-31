@@ -381,6 +381,10 @@ if (isset($_GET['formsubmit']) && $_GET['formsubmit'] == 1) {
                 if (res == 2) {
                     $("#errorModal3").modal('show');
                 }
+
+                if (res == 3) {
+                    window.location.href = "login.php";
+                }
             })
 
 

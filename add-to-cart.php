@@ -4,6 +4,12 @@ require 'common/conn.php';
 session_start();
 
 if (!$_SESSION['login_user_id']) {
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        echo 3;
+        exit();
+    }
+
     header('Location:login.php');
     exit();
 } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
