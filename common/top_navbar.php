@@ -273,7 +273,7 @@ while ($cato = mysqli_fetch_array($result2)) {
                 </h5>
             </div>
             <div class="modal-footer text-center">
-                <a href=" index.php" type="submit" class="btn btn-success">Ok</a>
+                <a href="my_games.php" type="submit" class="btn btn-success">Ok</a>
             </div>
         </div>
     </div>
@@ -313,7 +313,7 @@ while ($cato = mysqli_fetch_array($result2)) {
                 </h5>
             </div>
             <div class="modal-footer text-center">
-                <a href="game_store.php" type="submit" class="btn btn-success">Ok</a>
+                <a href="my_games.php" type="submit" class="btn btn-success">Ok</a>
             </div>
         </div>
     </div>

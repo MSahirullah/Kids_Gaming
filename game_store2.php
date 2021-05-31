@@ -3,7 +3,10 @@
 
 require 'common/conn.php';
 
-$user_id = $_SESSION['login_user_id'];
+$user_id = 0;
+if (isset($_SESSION['login_user_id'])) {
+    $user_id = $_SESSION['login_user_id'];
+}
 
 $query = "SELECT games.* from games where not exists(SELECT null FROM payments WHERE payments.game_id = games.id AND payments.user_id = '$user_id')";
 

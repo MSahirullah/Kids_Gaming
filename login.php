@@ -42,7 +42,7 @@ if (isset($_SESSION['login_user_email'])) {
                     <img src=" images/logo2.png" alt="logo" width="150" style="margin-left:-25px;padding-bottom: 30px;">
                 </span>
                 <?php
-                if ($_GET['error']) {
+                if (isset($_GET['error'])) {
                 ?>
                     <div class="text-center text-danger">
                         <label class="label label-danger">

@@ -118,8 +118,8 @@ if (isset($_SESSION['login_user_email'])) {
                         </div>
 
                         <div class="wrap-input100 validate-input">
-                            <label for="fname">Mobile Number</label>
-                            <input class="input100" type="text" name="mobNo" id="mobNo" required>
+                            <label for="fname">Mobile Number <small>(07XXXXXXXX)</small></label>
+                            <input class="input100" maxlength="10" type="tel" name="mobNo" id="mobNo" required pattern="07[1,2,5,6,7,8][0-9]+">
                         </div>
                     </div>
 
@@ -130,10 +130,10 @@ if (isset($_SESSION['login_user_email'])) {
                         <div class="text-center select-p-option">
 
                             <input class="form-check-input r-1" type="radio" name="p-option" id="p-option" value="visa" required>
-                            <img src=" images/card-1.png" alt="c1" width="75px">
+                            <label for="p-option"><img src=" images/card-1.png" alt="c1" width="75px"></label>
 
                             <input class="form-check-input r-1" type="radio" name="p-option" id="p-option1" value="master" required>
-                            <img src=" images/cade-2.png" alt="c2" width="75px">
+                            <label for="p-option1"><img src=" images/cade-2.png" alt="c2" width="75px"></label>
                         </div>
                         <div class="wrap-input100 validate-input">
                             <label for="card_no">Card Number</label>
