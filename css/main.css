@@ -373,6 +373,12 @@ iframe {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+  transition: 0.3s;
+}
+
+.login100-form-btn:hover {
+  background: #7e92ff;
+  transition: 0.3s;
 }
 
 .login100-form-btn {

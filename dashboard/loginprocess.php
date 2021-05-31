@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             header("location: index.php");
         } else {
-            $error = "Your Login Name or Password is invalid";
+            header('Location:login.php?formsubmit=1');
+            exit();
         }
     }
 }

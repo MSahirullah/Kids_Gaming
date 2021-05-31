@@ -39,8 +39,11 @@ if (isset($_SESSION['login_user_email'])) {
         background-color: #090909;
     }
 </style>
-<br>
+
 <div class="container">
+<br>
+<br>
+<br>
     <div class="row">
 
         <div class="col-sm-5">
@@ -121,7 +124,7 @@ if (isset($_SESSION['login_user_email'])) {
     <br><br>
 
     <?php
-    if (isset($_GET['formsubmit']) && $_GET['formsubmit'] == 9) {
+    if (isset($_GET['formsubmit']) && $_GET['formsubmit'] == 10) {
     ?>
         <script>
             $("#successModal1").modal('show');

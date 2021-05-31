@@ -1,9 +1,11 @@
-<?php include '../common/header.php';
+<?php include '../common/dashboard_header.php';
 
 if (isset($_SESSION['login_user_email'])) {
     header('Location:index.php');
 }
 ?>
+
+
 
 <div class="limiter">
     <div class="container-login100">
@@ -17,7 +19,7 @@ if (isset($_SESSION['login_user_email'])) {
                 </span>
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="text" name="email" required>
+                    <input class="input100" type="email" name="email" required>
                     <span class="focus-input100" data-placeholder="Email"></span>
                 </div>
 
@@ -25,7 +27,7 @@ if (isset($_SESSION['login_user_email'])) {
                     <input class="input100" type="password" name="password">
                     <span class="focus-input100" data-placeholder="Password" required></span>
                 </div>
-                
+
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
@@ -49,6 +51,17 @@ if (isset($_SESSION['login_user_email'])) {
 <script src="../vendor/daterangepicker/daterangepicker.js"></script>
 <script src="../vendor/countdowntime/countdowntime.js"></script>
 <script src="../js/main.js"></script>
+
+<?php
+if (isset($_GET['formsubmit']) && $_GET['formsubmit'] == 1) {
+?>
+    <script>
+        alert("Email address or password is incorrect.");
+        window.location = 'login.php';
+    </script>
+<?php
+}
+?>
 
 </body>
 

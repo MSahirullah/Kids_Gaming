@@ -1,6 +1,6 @@
 <?php
 
-include('../common/header.php');
+include('../common/dashboard_header.php');
 include('d-header.php');
 require '../common/conn.php';
 

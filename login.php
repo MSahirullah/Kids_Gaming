@@ -39,7 +39,7 @@ if (isset($_SESSION['login_user_email'])) {
                     Welcome
                 </span>
                 <span class="login100-form-title">
-                    <img src="../images/logo2.png" alt="logo" width="150" style="margin-left:-25px;padding-bottom: 30px;">
+                    <img src=" images/logo2.png" alt="logo" width="150" style="margin-left:-25px;padding-bottom: 30px;">
                 </span>
 
                 <div class="wrap-input100 validate-input">
@@ -77,14 +77,14 @@ if (isset($_SESSION['login_user_email'])) {
 
 
 <div id="dropDownSelect1"></div>
-<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-<script src="../vendor/animsition/js/animsition.min.js"></script>
-<script src="../vendor/bootstrap/js/popper.js"></script>
-<script src="../vendor/select2/select2.min.js"></script>
-<script src="../vendor/daterangepicker/moment.min.js"></script>
-<script src="../vendor/daterangepicker/daterangepicker.js"></script>
-<script src="../vendor/countdowntime/countdowntime.js"></script>
-<script src="../js/main.js"></script>
+<script src=" vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src=" vendor/animsition/js/animsition.min.js"></script>
+<script src=" vendor/bootstrap/js/popper.js"></script>
+<script src=" vendor/select2/select2.min.js"></script>
+<script src=" vendor/daterangepicker/moment.min.js"></script>
+<script src=" vendor/daterangepicker/daterangepicker.js"></script>
+<script src=" vendor/countdowntime/countdowntime.js"></script>
+<script src=" js/main.js"></script>
 
 </body>
 
