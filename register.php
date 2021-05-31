@@ -26,6 +26,10 @@ if (isset($_SESSION['login_user_email'])) {
     .input100 {
         color: #ffffff;
     }
+
+    .wrap-login100-form-btn {
+        cursor: pointer;
+    }
 </style>
 
 <div class="limiter">
@@ -52,12 +56,12 @@ if (isset($_SESSION['login_user_email'])) {
                 </div>
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="password" name="password">
+                    <input class="input100" id="password1" type="password" name="password">
                     <span class="focus-input100" data-placeholder="Password" required></span>
                 </div>
 
                 <div class="wrap-input100 validate-input">
-                    <input class="input100" type="password" name="password">
+                    <input class="input100" id="password2" type="password" name="password">
                     <span class="focus-input100" data-placeholder="Repeat Password" required></span>
                 </div>
                 <div class="container-login100-form-btn text-center">
@@ -68,9 +72,9 @@ if (isset($_SESSION['login_user_email'])) {
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn">
+                        <span class="login100-form-btn">
                             Register
-                        </button>
+                        </span>
                     </div>
                 </div>
                 <div class="container-login100-form-btn">
@@ -94,6 +98,19 @@ if (isset($_SESSION['login_user_email'])) {
 <script src="../vendor/countdowntime/countdowntime.js"></script>
 <script src="../js/main.js"></script>
 
+
+<script>
+    $('.wrap-login100-form-btn').click(function() {
+        var password1 = $('#password1').val();
+        var password2 = $('#password2').val();
+
+        if (password1 == password2) {
+            $('form').submit();
+        } else {
+            alert('Passwords not matching');
+        }
+    });
+</script>
 
 <?php
 if (isset($_GET['formsubmit']) && $_GET['formsubmit'] == 13) {
