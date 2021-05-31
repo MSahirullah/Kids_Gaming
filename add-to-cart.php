@@ -23,12 +23,13 @@ if (!$_SESSION['login_user_id']) {
         $sql = "INSERT INTO cart (user_id, game_id, price, status ) VALUES ('$user_id', '$game_id', '$price', 1)";
 
         if ($conn->query($sql) == TRUE) {
-            header("Location:game_store.php?formsubmit=1");
-            exit();
+            echo 1;
+        } else {
+            echo 0;
         }
-        echo "Error" . $sql . $conn->error;
     } else {
-        header("Location:game_store.php?formsubmit=2");
-        exit();
+        echo 2;
     }
+
+    exit();
 }

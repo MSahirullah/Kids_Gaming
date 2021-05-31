@@ -47,6 +47,32 @@
         </div>
     </div>
 </footer>
+<script>
+    $(document).ready(function() {
+        $(".add-to-cart").click(function() {
+            var game_id = $(this).parent().attr('data-gameid');
+            var url = $(this).parent().attr('data-url');
+            var price = $(this).parent().attr('data-price');
+
+            $.post('add-to-cart.php', {
+                game_id: game_id,
+                url: url,
+                price: price
+            }, function(res) {
+                if (res == 1) {
+                    $("#successModal3").modal('show');
+                }
+                if (res == 2) {
+                    $("#errorModal3").modal('show');
+                }
+            })
+        });
+
+        $("#successModal3 #modal-ok").click(function() {
+            window.location.reload();
+        });
+    })
+</script>
 </body>
 
 </html>

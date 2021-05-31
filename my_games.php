@@ -25,9 +25,8 @@ if ($count > 0) {
     }
 }
 
-
-
 ?>
+
 <style>
     body {
         background-color: black;
@@ -92,7 +91,7 @@ if ($count > 0) {
 
 <div>
     <!--Content-->
-
+    <br>
     <div class="container">
         <h3>My Games</h3>
         <div class="hr-line"></div>

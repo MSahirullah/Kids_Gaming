@@ -103,13 +103,8 @@ while ($game = mysqli_fetch_array($result)) {
                             <div class="col-md-6">
                                 <a href="../sample-game/" class="btn btn-dark btn-block"> <i class="fa fa-gamepad"></i> Play Demo </a>
                             </div>
-                            <div class="col-md-6 pl-0">
-                                <form action="add-to-cart.php" method="POST">
-                                <input type="hidden" name="game_id" id="game_id" value="' . $games[$x]['id'] . '">
-                                <input type="hidden" name="url" id="url" value="game_store2.php">
-                                <input type="hidden" name="price" id="price" value="' . $games[$x]['price'] . '">
-                                <button type="submit" class="btn btn-warning btn-block "> <i class="fa fa-shopping-cart" style="padding-left: 8px;margin-right: 4px;"></i> Add to Cart</button>
-                                </form>
+                            <div class="col-md-6 pl-0" data-gameid="' . $games[$x]['id'] . '" data-url="game_store.php" data-price="' . $games[$x]['price'] . '">
+                                <button type="button" class="btn btn-warning btn-block add-to-cart"> <i class="fa fa-shopping-cart" style="padding-left: 8px;margin-right: 4px;"></i> Add to Cart</button>
                             </div>
                         </div>
                     </div>';

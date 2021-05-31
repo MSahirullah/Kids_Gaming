@@ -124,7 +124,7 @@ while ($cato = mysqli_fetch_array($result2)) {
                 <li class="nav-item">
                     <a data-toggle="modal" data-target="#cart" class="nav-link reg-btn btn-sm" style="cursor: pointer;">
                         <i class="fas fa-shopping-cart"></i>
-                        Cart
+                        Cart <span class="cart-qty"> <?php echo count($items); ?> </span>
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -253,7 +253,7 @@ while ($cato = mysqli_fetch_array($result2)) {
                 </h5>
             </div>
             <div class="modal-footer text-center">
-                <a href="game_store.php" type="submit" class="btn btn-success">Ok</a>
+                <button type="button" id="modal-ok" class="btn btn-success">Ok</button>
             </div>
         </div>
     </div>
@@ -293,7 +293,8 @@ while ($cato = mysqli_fetch_array($result2)) {
                 </h5>
             </div>
             <div class="modal-footer text-center">
-                <a href="game_store.php" type="submit" class="btn btn-success">Ok</a>
+                <!-- <a href="game_store.php" type="submit" class="btn btn-success">Ok</a> -->
+                <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
             </div>
         </div>
     </div>

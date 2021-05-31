@@ -568,3 +568,11 @@ footer a {
   border-radius: 7px;
   margin-bottom: 26px;
 }
+.cart-qty {
+  background-color: #e713a5;
+  width: 18px;
+  border-radius: 21px;
+  padding: 0px 6px;
+  color: white;
+
+}
