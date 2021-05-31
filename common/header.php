@@ -3,16 +3,16 @@
 session_start();
 $url = $_SERVER['REQUEST_URI'];
 
-// if (str_contains($url, 'dashboard')) {
-//     if (!isset($_SESSION['login_user_email'])) {
-//         if (basename($url) != 'login.php') {
-//             header('Location:login.php');
-//         }
-//     }
-//     if ($_SESSION['login_user_role'] != 'ROLE_ADMIN') {
-//         header('Location:../index.php');
-//     }
-// }
+if (strrpos($url, 'dashboard') !== false) {
+    if (!isset($_SESSION['login_user_email'])) {
+        if (basename($url) != 'login.php') {
+            header('Location:login.php');
+        }
+    }
+    if ($_SESSION['login_user_role'] and $_SESSION['login_user_role'] != 'ROLE_ADMIN') {
+        header('Location:../index.php');
+    }
+}
 
 $_SESSION["status"] = "0";
 ?>
@@ -48,7 +48,7 @@ $_SESSION["status"] = "0";
     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" integrity="sha512-rRQtF4V2wtAvXsou4iUAs2kXHi3Lj9NE7xJR77DE7GHsxgY9RTWy93dzMXgDIG8ToiRTD45VsDNdTiUagOFeZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />

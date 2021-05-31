@@ -3,16 +3,16 @@
 session_start();
 $url = $_SERVER['REQUEST_URI'];
 
-// if (str_contains($url, 'dashboard')) {
-//     if (!isset($_SESSION['login_user_email'])) {
-//         if (basename($url) != 'login.php') {
-//             header('Location:login.php');
-//         }
-//     }
-//     if ($_SESSION['login_user_role'] != 'ROLE_ADMIN') {
-//         header('Location:../index.php');
-//     }
-// }
+if (strrpos($url, 'dashboard') !== false) {
+  if (!isset($_SESSION['login_user_email'])) {
+    if (basename($url) != 'login.php') {
+      header('Location:login.php');
+    }
+  }
+  if ($_SESSION['login_user_role'] and $_SESSION['login_user_role'] != 'ROLE_ADMIN') {
+    header('Location:../index.php');
+  }
+}
 
 $_SESSION["status"] = "0";
 ?>
